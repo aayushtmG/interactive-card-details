@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./dist/output.css" />
+    <title>Frontend Mentor | Interactive card details form</title>
+  </head>
+  <body>
+    <main class="flex flex-col justify-between gap-20 xl:flex-row">
+      <!--CARD SECTION-->
+      <div class="relative lg:w-full">
+        <img
+          src="./images/bg-main-mobile.png"
+          alt="background image for mobile"
+          class="w-full h-full relative -z-20 xl:hidden"
+        />
+        <img
+          src="./images/bg-main-desktop.png"
+          alt="background image for desktop"
+          class="hidden xl:block relative -z-20 xl:h-screen w-[80%]"
+        />
+        <!-- CARD WRAPPER -->
+        <!-- outer wrapper -->
+        <div
+          class="absolute -z-10 -bottom-10 h-max left-4 sm:w-full sm:left-0 sm:m-auto xl:-top-28 xl:left-[7.2rem]"
+        >
+          <!-- inner wrapper -->
+          <div
+            class="relative w-max sm:m-auto drop-shadow-2xl flex flex-col-reverse xl:flex-col"
+            id="card-wrapper"
+          >
+            <!-- FRONT CARD  -->
+            <div
+              class="bg-front-card py-4 px-6 rounded-md left-4 -bottom-11 bg-cover xl:w-[360px] xl:h-[200px] 2xl:w-[450px] 2xl:h-[250px] lg:flex flex-col 2xl:py-6"
+            >
+              <img
+                src="./images/card-logo.svg"
+                alt="card logo"
+                class="mb-6 xl:mb-12 2xl:mb-[4.3rem] scale-75 -translate-x-4 2xl:scale-100 2xl:-translate-x-0 w-max"
+              />
+              <h2
+                id="card-number"
+                class="tracking-wide xl:text-xl 2xl:text-3xl mb-2 xl:mb-4 2xl:mb-6"
+              >
+                0000 0000 0000 0000
+              </h2>
+              <div
+                class="text-light-grayish text-sm flex justify-between items-center 2xl:text-base"
+              >
+                <h3 class="uppercase" id="cardholdername">Aayush Tamang</h3>
+                <h3>
+                  <span id="cardMonth">00</span>/<span id="cardYear">00</span>
+                </h3>
+              </div>
+            </div>
+            <!-- BACK CARD -->
+            <div
+              class="bg-back-card bg-cover w-[280px] h-[155px] rounded-md relative -z-10 left-14 top-[4.1rem] sm:-top-2 sm:left-0 xl:top-6 xl:left-24 xl:w-[360px] xl:h-[200px] 2xl:w-[450px] 2xl:h-[250px]"
+            >
+              <p
+                id="cvc"
+                class="text-light-grayish absolute top-[44%] left-[80%] w-max"
+              >
+                000
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--FORM SECTION -->
+      <div class="mb-10 lg:mb-0 w-full xl:flex xl:items-center">
+        <div id="form-container" class="xl:ml-10">
+          <form
+            class="flex flex-col gap-5 items-center xl:w-[500px] m-auto 2xl:gap-6"
+            id="form"
+          >
+            <div class="w-5/6 mb-2 flex flex-col space-y-2">
+              <label for="cardholder-name" class="2xl:text-base"
+                >CARDHOLDER NAME</label
+              >
+              <div class="input-wrapper relative" id="name">
+                <input
+                  type="text"
+                  id="cardholder-name"
+                  name="cardholdername"
+                  maxlength="25"
+                  placeholder="e.g. Jane Appleseed"
+                  class="p-3 w-full text-dark-grayish rounded-lg placeholder-light-grayish"
+                />
+                <p
+                  class="form-error 2xl:text-sm text-red-500 text-xs absolute mt-2"
+                ></p>
+              </div>
+            </div>
+            <div class="w-5/6 flex flex-col space-y-2">
+              <label for="card-number" class="2xl:text-base">CARD NUMBER</label>
+              <div class="input-wrapper relative" id="number">
+                <input
+                  type="tel"
+                  id="cardnumber-field"
+                  name="cardnumber"
+                  maxlength="19"
+                  placeholder="e.g. 1234 5678 9123 0000"
+                  class="p-3 w-full text-dark-grayish rounded-lg placeholder-light-grayish"
+                />
+                <p
+                  class="form-error 2xl:text-sm text-red-500 text-xs fotn-medium absolute mt-2"
+                ></p>
+              </div>
+            </div>
+            <div class="flex m-auto w-5/6 items-center gap-4">
+              <!-- for expiry date -->
+              <div class="space-y-2">
+                <label for="exp-date" class="whitespace-nowrap 2xl:text-base"
+                  >EXP. DATE(MM/YY)</label
+                >
+                <div class="flex space-x-2">
+                  <div class="input-wrapper" id="month">
+                    <input
+                      type="tel"
+                      maxlength="2"
+                      placeholder="MM"
+                      name="expDate"
+                      id="cardMonth-field"
+                      class="placeholder-light-grayish text-dark-grayish w-full rounded-lg p-2 text-center"
+                    />
+                    <p
+                      class="form-error 2xl:text-sm text-red-500 xl:text-xs text-[2.8vw] absolute mt-2"
+                    ></p>
+                  </div>
+                  <div class="input-wrapper" id="year">
+                    <input
+                      type="tel"
+                      maxlength="4"
+                      minlength="4"
+                      name="expDate"
+                      placeholder="YY"
+                      id="cardYear-field"
+                      class="placeholder-light-grayish text-dark-grayish w-full rounded-lg p-2 text-center"
+                    />
+                    <p
+                      class="form-error text-red-500 text-[2.8vw] xl:text-xs 2xl:text-sm absolute mt-2"
+                    ></p>
+                  </div>
+                </div>
+              </div>
+              <!-- for cvc -->
+              <div class="basis-[550px] space-y-2">
+                <label for="cvc" class="2xl:text-base">CVC</label>
+                <div class="input-wrapper" id="cvcNumber">
+                  <input
+                    type="tel"
+                    maxlength="3"
+                    name="cvc"
+                    placeholder="e.g. 123"
+                    id="cvc-field"
+                    class="placeholder-light-grayish text-dark-grayish w-full rounded-lg p-2"
+                  />
+                  <p
+                    class="form-error text-red-500 text-xs 2xl:text-sm absolute mt-2"
+                  ></p>
+                </div>
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="mt-5 bg-verydark-violet p-3 w-5/6 rounded-lg"
+            >
+              Confirm
+            </button>
+          </form>
+        </div>
+        <!-- On form completion -->
+        <div
+          class="flex flex-col items-center gap-3 xl:gap-2 2xl:gap-5 mt-20 xl:mt-0 xl:translate-x-20 xl:"
+          id="completedState"
+        >
+          <img
+            src="./images/icon-complete.svg"
+            alt="complete logo"
+            class="mb-6"
+          />
+          <h2 class="text-verydark-violet text-3xl xl:text-4xl 2xl:text-5xl">
+            THANK YOU!
+          </h2>
+          <p class="text-dark-grayish font-bold 2xl:text-2xl xl:px-8">
+            We've added your card details
+          </p>
+          <button
+            class="mt-8 bg-verydark-violet p-3 w-5/6 xl:w-full rounded-lg"
+          >
+            Continue
+          </button>
+        </div>
+      </div>
+    </main>
+    <!-- 
+    <div class="attribution text-dark-grayish w-[80%] m-auto">
+      Challenge by
+      <a
+        href="https://www.frontendmentor.io?ref=challenge"
+        target="_blank"
+        class="text-verydark-violet"
+        >Frontend Mentor</a
+      >. Coded by <a href="#" class="text-verydark-violet">Aayush Tamang</a>.
+    </div> -->
+
+    <script src="main.js"></script>
+  </body>
+</html>
